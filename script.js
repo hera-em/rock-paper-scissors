@@ -107,6 +107,7 @@ function playGame () {
 
         if (humanScore == 5) {
             const winner = document.createElement("p");
+            winner.classList.add("highlight")
             winner.textContent = "And the winner is... you!";
             results.appendChild(winner);
             rock.disabled = true;
@@ -116,6 +117,7 @@ function playGame () {
 
         else if (computerScore == 5) {
             const winner = document.createElement("p");
+            winner.classList.add("highlight")
             winner.textContent = "And the winner is... the computer!";
             results.appendChild(winner);
             rock.disabled = true;

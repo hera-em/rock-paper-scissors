@@ -1,3 +1,8 @@
+let humanSelection = "";
+let computerSelection = "";
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let roll = Math.floor(Math.random() * 3);
     switch (roll) {
@@ -15,15 +20,7 @@ function getHumanChoice(){
     return prompt("rock / paper / scissors?");
 }
 
-
-
-
-
-function playGame () {
-    let humanScore = 0;
-    let computerScore = 0;
-
-    function playRound (humanChoice, computerChoice) {
+function playRound (humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
     switch (humanChoice) {
         case "rock":
@@ -70,26 +67,32 @@ function playGame () {
     }
 
 }
-    for (let i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        console.log(`The computer chose: ${computerSelection}`);
-        playRound(humanSelection,computerSelection);
-        console.log(`Your score is: ${humanScore}`);
-        console.log(`The computer's score is: ${computerScore}`);
-        console.log("----------------------");
-    }
 
-    if (computerScore > humanScore) {
-        console.log("And the winner is... the computer!");
-    }
-    else if (humanScore > computerScore) {
-        console.log("And the winner is... you!");
-    }
-    else {
-        console.log("And the winner is... no one :(");       
-    }
+
+
+
+function playGame () {
+
+
+    // for (let i = 0; i < 5; i++) {
+    //     humanSelection = getHumanChoice();
+    //     computerSelection = getComputerChoice();
+    //     console.log(`The computer chose: ${computerSelection}`);
+    //     playRound(humanSelection,computerSelection);
+    //     console.log(`Your score is: ${humanScore}`);
+    //     console.log(`The computer's score is: ${computerScore}`);
+    //     console.log("----------------------");
+    // }
+
+    // if (computerScore > humanScore) {
+    //     console.log("And the winner is... the computer!");
+    // }
+    // else if (humanScore > computerScore) {
+    //     console.log("And the winner is... you!");
+    // }
+    // else {
+    //     console.log("And the winner is... no one :(");       
+    // }
 
 }
 
-playGame();

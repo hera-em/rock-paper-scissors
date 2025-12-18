@@ -30,12 +30,9 @@ button {
     align-items: center;
 }
 
-#buttons {
-    gap: 10px;
-}
-
+#buttons,
 #score {
-    gap: 10px
+    gap: 10px;
 }
 
 .highlight {

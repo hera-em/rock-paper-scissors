@@ -6,11 +6,13 @@ let computerScore = 0;
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+const results = document.querySelector("#results")
+
+
 
 rock.addEventListener('click', () => playRound("rock", getComputerChoice()));
 paper.addEventListener('click', () => playRound("paper", getComputerChoice()));
 scissors.addEventListener('click', () => playRound("scissors", getComputerChoice()));
-
 
 
 function getComputerChoice() {
@@ -35,42 +37,63 @@ function playRound (humanChoice, computerChoice) {
     switch (humanChoice) {
         case "rock":
             if (computerChoice === "scissors") {
-                console.log ("You win! Rock beats scissors");
+                const roundResult = document.createElement("p");
+                roundResult.textContent = ("You win! Rock beats scissors")
+                results.appendChild(roundResult);
                 humanScore++;
             }
             else if (computerChoice === "paper") {
-                console.log ("You lose :( Paper beats rock");
+                const roundResult = document.createElement("p");
+                roundResult.textContent = ("You lose :( Paper beats rock")
+                results.appendChild(roundResult);
                 computerScore++;
             }
             else {
-                console.log("It's a draw!");
+                const roundResult = document.createElement("p");
+                roundResult.textContent = ("It's a draw!")
+                results.appendChild(roundResult);
             };
             break;
 
         case "paper":
             if(computerChoice === "scissors") {
-                console.log ("You lose :( Scissors beat paper");
+                const roundResult = document.createElement("p");
+                roundResult.textContent = ("You lose :( Scissors beat paper!")
+                results.appendChild(roundResult);
+
                 computerScore++;
             }
             else if (computerChoice === "paper") {
-                console.log ("It's a draw!");
+                const roundResult = document.createElement("p");
+                roundResult.textContent = ("It's a draw!")
+                results.appendChild(roundResult);
+
             }
             else {
-                console.log ("You win! Paper beats rock");
+                const roundResult = document.createElement("p");
+                roundResult.textContent = ("You win! Paper beats rock!")
+                results.appendChild(roundResult);
                 humanScore++;
             };
             break;
 
         case "scissors":
             if (computerChoice === "scissors") {
-                console.log ("It's a draw!");
+                const roundResult = document.createElement("p");
+                roundResult.textContent = ("It's a draw!")
+                results.appendChild(roundResult);
+
             }
             else if (computerChoice === "paper") {
-                console.log ("You win! Scissors beat paper");
+                const roundResult = document.createElement("p");
+                roundResult.textContent = ("You win! Scissors beat paper")
+                results.appendChild(roundResult);
                 humanScore++;
             }
             else {
-                console.log ("You lose :( Rock beats scissors");
+                const roundResult = document.createElement("p");
+                roundResult.textContent = ("You lose :( Rock beats scissors")
+                results.appendChild(roundResult);
                 computerScore++;
             };
             break;

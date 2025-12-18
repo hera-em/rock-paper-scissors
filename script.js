@@ -11,11 +11,6 @@ const humanScoreResult = document.querySelector("#human-score");
 const computerScoreResult = document.querySelector("#computer-score");
 
 
-rock.addEventListener('click', () => playRound("rock", getComputerChoice()));
-paper.addEventListener('click', () => playRound("paper", getComputerChoice()));
-scissors.addEventListener('click', () => playRound("scissors", getComputerChoice()));
-
-
 function getComputerChoice() {
     let roll = Math.floor(Math.random() * 3);
     switch (roll) {
@@ -33,7 +28,13 @@ function getHumanChoice(){
     return prompt("rock / paper / scissors?");
 }
 
-function playRound (humanChoice, computerChoice) {
+function playGame () {
+
+    rock.addEventListener('click', () => playRound("rock", getComputerChoice()));
+    paper.addEventListener('click', () => playRound("paper", getComputerChoice()));
+    scissors.addEventListener('click', () => playRound("scissors", getComputerChoice()));
+
+    function playRound (humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
     switch (humanChoice) {
         case "rock":
@@ -101,33 +102,20 @@ function playRound (humanChoice, computerChoice) {
     }
     humanScoreResult.textContent = `Your score: ${humanScore}`; 
     computerScoreResult.textContent = `Computer score: ${computerScore}`;
+
+    if (humanScore == 5) {
+        const winner = document.createElement("p");
+        winner.textContent = "And the winner is... you!";
+        results.appendChild(winner);
+    }
+
+    else if (computerScore == 5) {
+        const winner = document.createElement("p");
+        winner.textContent = "And the winner is... the computer!";
+        results.appendChild(winner);
+    }
 }
 
 
-
-
-function playGame () {
-
-
-    // for (let i = 0; i < 5; i++) {
-    //     humanSelection = getHumanChoice();
-    //     computerSelection = getComputerChoice();
-    //     console.log(`The computer chose: ${computerSelection}`);
-    //     playRound(humanSelection,computerSelection);
-    //     console.log(`Your score is: ${humanScore}`);
-    //     console.log(`The computer's score is: ${computerScore}`);
-    //     console.log("----------------------");
-    // }
-
-    // if (computerScore > humanScore) {
-    //     console.log("And the winner is... the computer!");
-    // }
-    // else if (humanScore > computerScore) {
-    //     console.log("And the winner is... you!");
-    // }
-    // else {
-    //     console.log("And the winner is... no one :(");       
-    // }
-
 }
-
+playGame();
